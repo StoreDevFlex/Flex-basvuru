@@ -1,390 +1,124 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLEX</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #050508;
-            color: #e2e8f0;
-            overflow-x: hidden;
-        }
-        #bgCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .glass-card {
-            background: rgba(12, 14, 24, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-        }
-        .glass-modal {
-            background: rgba(10, 12, 20, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .glow-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glow-hover:hover {
-            transform: translateY(-4px);
-            border-color: rgba(59, 130, 246, 0.4);
-            box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.2);
-        }
-        .glow-hover-purple:hover {
-            transform: translateY(-4px);
-            border-color: rgba(168, 85, 247, 0.4);
-            box-shadow: 0 12px 30px -10px rgba(168, 85, 247, 0.2);
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #050508;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 4px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex - Brawl Stars Companion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      user-select: none;
+    }
+  </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between items-center p-4 md:p-8 relative">
+<body class="min-h-screen flex flex-col justify-between p-6">
 
-    <!-- Hareketli Siyah Arka Plan Canvas -->
-    <canvas id="bgCanvas"></canvas>
-
-    <!-- Üst Sağ Discord Sunucusu Bağlantısı -->
-    <div class="fixed top-5 right-5 z-20">
-        <a href="https://discord.gg/5V23ZQPk7" target="_blank" rel="noopener noreferrer" 
-           class="flex items-center gap-2.5 px-4 py-2 bg-slate-900/80 hover:bg-indigo-600/20 border border-slate-700/60 hover:border-indigo-500/50 text-slate-300 hover:text-white rounded-xl transition-all duration-300 text-xs md:text-sm font-semibold backdrop-blur-md shadow-lg group">
-            <i class="fa-brands fa-discord text-indigo-400 group-hover:text-white text-lg transition-colors"></i>
-            <span class="hidden sm:inline">Sunucumuza Katıl</span>
-        </a>
+  <!-- ÜST KISIM / LOGO VE BAŞLIK -->
+  <div class="max-w-md mx-auto w-full text-center pt-8">
+    <div class="inline-flex items-center justify-center w-20 h-20 bg-white rounded-3xl shadow-xl border border-slate-200 mb-4">
+      <span class="text-2xl font-black italic tracking-wider text-slate-900">FLEX</span>
     </div>
+    <h1 class="text-2xl font-black text-slate-900">Flex Brawl Stars</h1>
+    <p class="text-xs text-slate-500 mt-1">iOS / iPadOS Resmi Profil İndirme Portalı (EST. 2026)</p>
+  </div>
 
-    <!-- HEADER / Sadece FLEX ve Mavi Tık -->
-    <header class="w-full max-w-4xl flex items-center justify-center mt-12 mb-8 z-10">
-        <div class="flex items-center gap-3">
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white uppercase select-none">FLEX</h1>
-            <!-- Mavi Tık Rozeti -->
-            <span class="inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 bg-blue-500 text-white rounded-full text-xs md:text-sm shadow-lg shadow-blue-500/30 select-none" title="Onaylı">
-                <i class="fa-solid font-bold fa-check"></i>
-            </span>
+  <!-- ORTA ALAN: İNDİR BUTONU -->
+  <div class="max-w-md mx-auto w-full bg-white border border-slate-200 p-6 rounded-3xl shadow-xl my-6">
+    <div class="space-y-4 text-center">
+      <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-left space-y-2">
+        <div class="text-xs font-bold text-slate-700 flex items-center">
+          <span class="w-2 h-2 rounded-full bg-indigo-600 mr-2"></span>
+          Kurulum Adımları:
         </div>
-    </header>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          1. <b>"PROFİLİ İNDİR"</b> butonuna bas.<br>
+          2. iPad Ayarlar > Profil İndirildi kısmından yükle.<br>
+          3. Ana ekrandaki beyaz <b>Flex</b> uygulamasını aç ve çalıştır!
+        </p>
+      </div>
 
-    <!-- ANA İÇERİK / BAŞVURU KARTLARI -->
-    <main class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 my-auto z-10 py-6">
-        
-        <!-- Moderatör Kartı -->
-        <div class="glass-card rounded-2xl p-6 md:p-8 flex flex-col justify-between glow-hover">
-            <div>
-                <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-5">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-white mb-2">Moderatör Başvurusu</h2>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                    Topluluk düzenini sağlamak ve denetim ekibinde aktif rol almak için başvur.
-                </p>
-            </div>
-            <button onclick="openModal('mod')" class="w-full py-3.5 px-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 text-sm">
-                <span>Başvuru Yap</span>
-                <i class="fa-solid fa-arrow-right text-xs"></i>
-            </button>
-        </div>
-
-        <!-- Admin Kartı -->
-        <div class="glass-card rounded-2xl p-6 md:p-8 flex flex-col justify-between glow-hover-purple">
-            <div>
-                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl mb-5">
-                    <i class="fa-solid fa-crown"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-white mb-2">Admin Başvurusu</h2>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                    Sistem ve üst düzey yönetim kadrosunda aktif sorumluluk almak için başvur.
-                </p>
-            </div>
-            <button onclick="openModal('admin')" class="w-full py-3.5 px-4 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-purple-600/20 flex items-center justify-center gap-2 text-sm">
-                <span>Başvuru Yap</span>
-                <i class="fa-solid fa-arrow-right text-xs"></i>
-            </button>
-        </div>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="w-full max-w-4xl text-center py-6 text-xs text-slate-600 z-10 select-none">
-        &copy; Flex
-    </footer>
-
-    <!-- BAŞVURU POPUP / MODAL -->
-    <div id="applicationModal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 z-50">
-        <div class="glass-modal w-full max-w-lg rounded-2xl p-6 md:p-8 shadow-2xl relative">
-            
-            <!-- Kapatma Butonu -->
-            <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-
-            <!-- Modal Başlık -->
-            <div class="mb-5">
-                <span id="modalCategoryBadge" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-2 inline-block">Kategori</span>
-                <h3 id="modalTitle" class="text-2xl font-bold text-white">Başvuru Formu</h3>
-            </div>
-
-            <!-- Discord Sunucusu Şartı Uyarısı -->
-            <div class="mb-5 p-3.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-between gap-3">
-                <div class="flex items-center gap-2.5 text-xs text-indigo-300">
-                    <i class="fa-brands fa-discord text-indigo-400 text-base shrink-0"></i>
-                    <span><strong>Şart:</strong> Başvurunuzun değerlendirilmesi için Discord sunucumuzda olmanız gereklidir.</span>
-                </div>
-                <a href="https://discord.gg/5V23ZQPk7" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-3 py-1.5 rounded-lg transition-colors">
-                    Katıl
-                </a>
-            </div>
-
-            <!-- Form -->
-            <form id="applicationForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <input type="hidden" id="applicationType" value="">
-
-                <!-- Discord Kullanıcı Adı (Zorunlu) -->
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                        Discord Kullanıcı Adınız <span class="text-red-500">*</span>
-                    </label>
-                    <div class="relative">
-                        <span class="absolute left-3.5 top-3.5 text-slate-500"><i class="fa-brands fa-discord"></i></span>
-                        <input type="text" id="discordUsername" required placeholder="Örn: flex_user veya nickname" 
-                            class="w-full pl-10 pr-4 py-3 bg-slate-900/90 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 transition-colors">
-                    </div>
-                </div>
-
-                <!-- Deneyim / Açıklama -->
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                        Açıklama / Deneyimleriniz <span class="text-red-500">*</span>
-                    </label>
-                    <textarea id="experienceText" rows="4" required placeholder="Kendinizden ve yetkili tecrübelerinizden bahsedin..." 
-                        class="w-full p-4 bg-slate-900/90 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 transition-colors resize-none"></textarea>
-                </div>
-
-                <!-- Onay Kutusu -->
-                <div class="flex items-start gap-3 pt-1">
-                    <input type="checkbox" id="confirmCheck" required class="mt-0.5 w-4 h-4 rounded bg-slate-900 border-slate-700 text-blue-600 focus:ring-0 cursor-pointer">
-                    <label for="confirmCheck" class="text-xs text-slate-400 cursor-pointer select-none leading-relaxed">
-                        Discord sunucunuzda bulunduğumu ve verdiğim bilgilerin doğruluğunu <strong>onaylıyorum</strong>.
-                    </label>
-                </div>
-
-                <!-- Gönder Butonu -->
-                <button type="submit" id="submitBtn" class="w-full mt-3 py-3.5 px-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 text-sm">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    <span>Başvuruyu Gönder</span>
-                </button>
-            </form>
-
-            <!-- Başarı Bildirimi -->
-            <div id="successState" class="hidden text-center py-8 space-y-4">
-                <div class="w-16 h-16 bg-green-500/10 border border-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto text-3xl">
-                    <i class="fa-solid fa-circle-check"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white">Başvurunuz Alındı!</h4>
-                <p class="text-sm text-slate-400 max-w-xs mx-auto">
-                    Başvurunuz Discord kanalına başarıyla iletildi.
-                </p>
-                <button onclick="closeModal()" class="mt-4 px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold rounded-xl transition-colors">
-                    Tamam
-                </button>
-            </div>
-
-        </div>
+      <!-- PROFİL İNDİR BUTONU -->
+      <button onclick="downloadProfile()" class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-base rounded-2xl shadow-lg shadow-indigo-500/30 transition-all transform active:scale-95 flex items-center justify-center space-x-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        <span>PROFİLİ İNDİR (.mobileconfig)</span>
+      </button>
     </div>
+  </div>
 
-    <!-- JAVASCRIPT & ARKA PLAN ANIMASYONU -->
-    <script>
-        // WEBHOOK ADRESLERİ
-        const WEBHOOKS = {
-            mod: "https://discord.com/api/webhooks/1559687812410900521/V3KbK5n9cePDOFpLpIxNE7zM9-cOyehnuk4XBfzKTuG-YxpvrIgpTlONU4pC2OFa67JU",
-            admin: "https://discord.com/api/webhooks/1559687814759845938/ysae00wgn66fvFjFbJH8NVzcX1NYjAYyD0L4k3sq8CDZwtPWPgfOhexUsP0wwT-4BE-F"
-        };
+  <!-- ALT KISIM: SSS (SORULAR VE CEVAPLAR) -->
+  <div class="max-w-md mx-auto w-full bg-white border border-slate-200 p-5 rounded-3xl shadow-sm mb-6">
+    <h2 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-3">Sık Sorulan Sorular</h2>
+    
+    <div class="space-y-3 text-left">
+      <div class="border-b border-slate-100 pb-2">
+        <p class="text-xs font-bold text-slate-800">Banlı mı, ban yeme riskim var mı?</p>
+        <p class="text-xs text-slate-500 mt-1">Hayır, kesinlikle bansızdır! Brawl Stars'ın oyun dosyalarına veya oyun kodlarına hiçbir şekilde müdahale etmeyen, tamamen harici çalışan güvenli bir uygulamadır.</p>
+      </div>
+      <div>
+        <p class="text-xs font-bold text-slate-800">Nasıl çalışıyor?</p>
+        <p class="text-xs text-slate-500 mt-1">Uygulamayı çalıştırdığında üst katta şerit olarak açılır ve maç esnasında karakter oranlarını gösterir.</p>
+      </div>
+    </div>
+  </div>
 
-        const modal = document.getElementById('applicationModal');
-        const modalCategoryBadge = document.getElementById('modalCategoryBadge');
-        const modalTitle = document.getElementById('modalTitle');
-        const applicationTypeInput = document.getElementById('applicationType');
-        const applicationForm = document.getElementById('applicationForm');
-        const successState = document.getElementById('successState');
-        const submitBtn = document.getElementById('submitBtn');
+  <!-- ALT BİLGİ -->
+  <footer class="text-center text-slate-400 text-xs py-2">
+    Flex Engine © 2026 — Tüm Hakları Saklıdır.
+  </footer>
 
-        function openModal(type) {
-            applicationTypeInput.value = type;
-            applicationForm.reset();
-            applicationForm.classList.remove('hidden');
-            successState.classList.add('hidden');
+  <script>
+    function downloadProfile() {
+      const mobileConfigContent = `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadDisplayName</key>
+    <string>Flex Companion</string>
+    <key>PayloadIdentifier</key>
+    <string>com.flex.brawlstars</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>A1B2C3D4-E5F6-7890-ABCD-EF0123456789</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>FullScreen</key>
+            <true/>
+            <key>Label</key>
+            <string>Flex</string>
+            <key>PayloadDisplayName</key>
+            <string>Flex</string>
+            <key>PayloadIdentifier</key>
+            <string>com.flex.webclip</string>
+            <key>PayloadType</key>
+            <string>com.apple.webClip.managed</string>
+            <key>PayloadUUID</key>
+            <string>12345678-ABCD-EF01-2345-6789ABCDEF01</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>URL</key>
+            <string>https://flex-engine.local/app</string>
+            <key>IsRemovable</key>
+            <true/>
+        </dict>
+    </array>
+</dict>
+</plist>`;
 
-            if (type === 'mod') {
-                modalCategoryBadge.textContent = "Moderatör";
-                modalCategoryBadge.className = "text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-2 inline-block";
-                modalTitle.textContent = "Moderatör Başvurusu";
-            } else {
-                modalCategoryBadge.textContent = "Admin";
-                modalCategoryBadge.className = "text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-2 inline-block";
-                modalTitle.textContent = "Admin Başvurusu";
-            }
-
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeModal() {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-
-            const type = applicationTypeInput.value;
-            const discordUsername = document.getElementById('discordUsername').value.trim();
-            const experienceText = document.getElementById('experienceText').value.trim();
-            const webhookUrl = WEBHOOKS[type];
-
-            if (!discordUsername || !experienceText) return;
-
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Gönderiliyor...</span>`;
-
-            const payload = {
-                username: "Flex Başvuru",
-                embeds: [
-                    {
-                        title: type === 'mod' ? "🛡️ Yeni Moderatör Başvurusu!" : "👑 Yeni Admin Başvurusu!",
-                        color: type === 'mod' ? 3447003 : 10181046,
-                        fields: [
-                            {
-                                name: "👤 Discord Kullanıcı Adı",
-                                value: `\`${discordUsername}\``,
-                                inline: true
-                            },
-                            {
-                                name: "📋 Başvuru Türü",
-                                value: type === 'mod' ? "Moderatör" : "Admin",
-                                inline: true
-                            },
-                            {
-                                name: "📝 Açıklama / Deneyim",
-                                value: experienceText
-                            },
-                            {
-                                name: "✅ Kullanıcı Onayı",
-                                value: "Kullanıcı sunucuda olduğunu ve şartları **onayladı**.",
-                                inline: false
-                            }
-                        ],
-                        footer: {
-                            text: "Flex Application System"
-                        },
-                        timestamp: new Date().toISOString()
-                    }
-                ]
-            };
-
-            try {
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (response.ok || response.status === 204) {
-                    applicationForm.classList.add('hidden');
-                    successState.classList.remove('hidden');
-                } else {
-                    alert("Gönderilirken bir hata oluştu!");
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("Bağlantı hatası!");
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> <span>Başvuruyu Gönder</span>`;
-            }
-        }
-
-        // --- SİYAH HAREKETLİ AĞ ANIMASYONU ---
-        const canvas = document.getElementById('bgCanvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const particles = [];
-        const particleCount = Math.min(Math.floor(window.innerWidth / 18), 65);
-
-        for (let i = 0; i < particleCount; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4,
-                radius: Math.random() * 1.5 + 1
-            });
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < particles.length; i++) {
-                let p = particles[i];
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
-                ctx.fill();
-
-                for (let j = i + 1; j < particles.length; j++) {
-                    let p2 = particles[j];
-                    let dx = p.x - p2.x;
-                    let dy = p.y - p2.y;
-                    let dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < 120) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.12 * (1 - dist / 120)})`;
-                        ctx.lineWidth = 0.6;
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animate);
-        }
-        animate();
-    </script>
+      // Safari ve iOS için doğrudan indirme tetikleyicisi
+      const encodedUri = 'data:application/x-apple-aspen-config;charset=utf-8,' + encodeURIComponent(mobileConfigContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', 'FlexBrawlStars.mobileconfig');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
 </body>
 </html>
